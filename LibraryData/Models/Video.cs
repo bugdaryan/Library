@@ -5,10 +5,8 @@ using System.Text;
 
 namespace LibraryData.Models
 {
-    public class Video
+    public class Video:LibraryAsset
     {
-        public int Id { get; set; }
-
         [Required]
         public string Director { get; set; }
     }
