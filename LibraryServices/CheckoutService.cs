@@ -72,6 +72,7 @@ namespace LibraryServices
         {
             var item = _context.LibraryAssets
                 .FirstOrDefault(asset => asset.Id == assetId);
+            if (item == null) return;
             _context.Update(item);
             item.Status = _context.Statuses
                 .FirstOrDefault(status => status.Name == s);
@@ -132,7 +133,9 @@ namespace LibraryServices
             var earliestHold = currentHolds
                 .OrderBy(holds => holds.HoldPlaced)
                 .FirstOrDefault();
-            var card = earliestHold.LibraryCard;
+            if (earliestHold == null) return;
+            var card = earliestHold?.LibraryCard;
+            
             _context.Remove(earliestHold);
             _context.SaveChanges();
             CheckOutItem(assetId, card.Id);
