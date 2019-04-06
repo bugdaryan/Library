@@ -51,6 +51,7 @@ namespace Library.Controllers
             var model = new AssetDetailModel
             {
                 AssetId = id,
+                PatronName = _checkouts.GetCurrentCheckoutPatron(id),
                 Title = asset.Title,
                 Type=_assets.GetType(id),
                 Year = asset.Year,
