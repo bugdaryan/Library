@@ -111,16 +111,16 @@ namespace LibraryServices
             var now = DateTime.Now;
             var item = _context.LibraryAssets
                 .FirstOrDefault(asset => asset.Id == assetId);
-
             RemoveExistingCheckouts(assetId);
             CloseExistingCheckoutHistory(assetId, now);
             var currentHolds = _context.Holds
                 .Include(h => h.LibraryAsset)
                 .Include(h => h.LibraryCard)
                 .Where(h => h.LibraryAsset.Id == assetId);
-            if (!currentHolds.Any())
+            if (currentHolds.Any())
             {
                 CheckoutToEarliestHold(assetId, currentHolds);
+                return;
             }
 
             UpdateAssetStatus(assetId, "Available");
