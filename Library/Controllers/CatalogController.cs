@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Library.Models.Catalog;
+using Library.Models.Checkout;
 using LibraryData;
 using Microsoft.AspNetCore.Mvc;
 
@@ -67,5 +68,23 @@ namespace Library.Controllers
 
             return View(model);
         }
+
+        public IActionResult Checkout(int id)
+        {
+            var asset = _assets.GetById(id);
+
+            var model = new CheckoutModel
+            {
+                AssetId = id,
+                ImageUrl = asset.ImageUrl,
+                Title = asset.Title,
+                LibraryCardId = "",
+                IsCheckedOut = _checkouts.IsCheckedOut(id)
+            };
+
+            return View(model);
+        }
+
+
     }
 }
