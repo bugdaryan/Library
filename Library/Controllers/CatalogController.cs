@@ -60,7 +60,7 @@ namespace Library.Controllers
                 CurrentLocation = _assets.GetCurrentLocation(asset.Id).Name,
                 DeweyCallNumber = _assets.GetDeweyIndex(asset.Id),
                 ISBN = _assets.GetIsbn(asset.Id),
-                CheckoutHistories = _checkouts.GetCheckoutHistory(id),
+                CheckoutHistory = _checkouts.GetCheckoutHistory(id),
                 LatestCheckout = _checkouts.GetLatestCheckout(id),
                 CurrentHolds = currentHolds
             };
