@@ -1,9 +1,5 @@
-﻿body {
-    font-family: 'Dokdo',serif
-}
-
-.logo {
-    font-family: "Coda";
+﻿.logo {
+    font-family: 'Coda', cursive;
     font-size: 1.8em;
     font-weight: bold;
 }
