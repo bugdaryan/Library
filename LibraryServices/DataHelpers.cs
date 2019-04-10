@@ -12,7 +12,7 @@ namespace LibraryServices
 
             foreach (var time in branchHours)
             {
-                var day = HumanizeDay(time.DayOfWeek);
+                var day = HumanizeDay(time.DayOfWeek-1);
                 var openTime = HumanizeTime(time.OpenTime);
                 var closeTime = HumanizeTime(time.CloseTime);
 
