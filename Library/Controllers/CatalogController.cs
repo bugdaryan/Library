@@ -110,30 +110,30 @@ namespace Library.Controllers
         }
 
 
-        public IActionResult MarkLost(int assetId)
+        public IActionResult MarkLost(int id)
         {
-            _checkouts.MarkLost(assetId);
-            return RedirectToAction("Detail", new { id = assetId });
+            _checkouts.MarkLost(id);
+            return RedirectToAction("Detail", new { id = id });
         }
 
-        public IActionResult MarkFound(int assetId)
+        public IActionResult MarkFound(int id)
         {
-            _checkouts.MarkFound(assetId);
-            return RedirectToAction("Detail", new { id = assetId });
-        }
-
-        [HttpPost]
-        public IActionResult PlaceCheckout(int assetId, int libraryCardId)
-        {
-            _checkouts.CheckOutItem(assetId, libraryCardId);
-            return RedirectToAction("Detail", new { id = assetId });
+            _checkouts.MarkFound(id);
+            return RedirectToAction("Detail", new { id = id });
         }
 
         [HttpPost]
-        public IActionResult PlaceHold(int assetId, int libraryCardId)
+        public IActionResult PlaceCheckout(int id, int libraryCardId)
         {
-            _checkouts.PlaceHold(assetId, libraryCardId);
-            return RedirectToAction("Detail", new { id = assetId });
+            _checkouts.CheckOutItem(id, libraryCardId);
+            return RedirectToAction("Detail", new { id = id });
+        }
+
+        [HttpPost]
+        public IActionResult PlaceHold(int id, int libraryCardId)
+        {
+            _checkouts.PlaceHold(id, libraryCardId);
+            return RedirectToAction("Detail", new { id = id });
         }
     }
 }
