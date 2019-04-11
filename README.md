@@ -3,7 +3,7 @@
 
 ### About project
 
-There are patrons (users) with library card. They can check in or check out books from catalog, also they can mark book or movie lost (which is currently not ready yet).
+There are patrons (users) with library card. They can check in or check out books from catalog, also they can mark book or movie lost.
 
 You can watch all books and videos in library assets section, all patrons in patrons section. It is planned to add authorization and authentication for users, and search bar for searching books and movies.
 
